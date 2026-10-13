@@ -4,17 +4,17 @@
 
 ## Hiện trạng đo được
 
-| HEAD đọc | Action ghim SHA | Workflow thiếu `permissions:` cấp đầu | Dependabot | LICENSE · SECURITY | File test |
-|---|---|---|---|---|---|
-| `098d769` (2026-10-09) | 0/92 | `ci.yml`, `release.yml` | **không có** | có · có | 873 |
+| HEAD đọc               | Action ghim SHA | Workflow thiếu `permissions:` cấp đầu | Dependabot   | LICENSE · SECURITY | File test |
+| ---------------------- | --------------- | ------------------------------------- | ------------ | ------------------ | --------- |
+| `098d769` (2026-10-09) | 0/92            | `ci.yml`, `release.yml`               | **không có** | có · có            | 873       |
 
 ## Đề xuất (🔴 cao · 🟠 trung bình · 🟢 nhẹ)
 
-| # | Mức | Đề xuất | Bằng chứng | Kiểm xong khi |
-|---|---|---|---|---|
-| 1 | 🟠 | Đặt lại nhánh mặc định về `main` | Nhánh mặc định trên GitHub đang là `agent/javascript-vite-rollup-esbuild-adapters` (`rea-agents` 2.1.0, HEAD 20/7/2026), trong khi `main` đã ở 6.1.0 (`098d769`, 9/10/2026). Người xem và các lệnh clone mặc định đều nhận bản cũ hơn 4 phiên bản lớn | `git ls-remote --symref origin HEAD` trỏ `refs/heads/main` |
-| 2 | 🟠 | Đồng bộ `main` với upstream `morluto/rea` (6.1.0 → 6.4.0) | `package.json` trên `main` ghi 6.1.0; upstream HEAD `c462a4e` (13/10/2026) ghi 6.4.0 | Phiên bản khớp upstream |
-| 3 | 🟢 | Thêm `permissions: contents: read` cấp đầu cho `ci.yml` và `release.yml` (nâng quyền ở job cần); ghim 92 `uses:` theo SHA nếu repo dùng để chạy, không chỉ để tham khảo | Ghim 0/92; `release.yml` không có `permissions:` cấp đầu, nên mọi job release đều thừa hưởng quyền mặc định của repo | `grep -L "^permissions:" .github/workflows/*.yml` rỗng |
+| #   | Mức | Đề xuất                                                                                                                                                                 | Bằng chứng                                                                                                                                                                                                                                            | Kiểm xong khi                                              |
+| --- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 1   | 🟠  | Đặt lại nhánh mặc định về `main`                                                                                                                                        | Nhánh mặc định trên GitHub đang là `agent/javascript-vite-rollup-esbuild-adapters` (`rea-agents` 2.1.0, HEAD 20/7/2026), trong khi `main` đã ở 6.1.0 (`098d769`, 9/10/2026). Người xem và các lệnh clone mặc định đều nhận bản cũ hơn 4 phiên bản lớn | `git ls-remote --symref origin HEAD` trỏ `refs/heads/main` |
+| 2   | 🟠  | Đồng bộ `main` với upstream `morluto/rea` (6.1.0 → 6.4.0)                                                                                                               | `package.json` trên `main` ghi 6.1.0; upstream HEAD `c462a4e` (13/10/2026) ghi 6.4.0                                                                                                                                                                  | Phiên bản khớp upstream                                    |
+| 3   | 🟢  | Thêm `permissions: contents: read` cấp đầu cho `ci.yml` và `release.yml` (nâng quyền ở job cần); ghim 92 `uses:` theo SHA nếu repo dùng để chạy, không chỉ để tham khảo | Ghim 0/92; `release.yml` không có `permissions:` cấp đầu, nên mọi job release đều thừa hưởng quyền mặc định của repo                                                                                                                                  | `grep -L "^permissions:" .github/workflows/*.yml` rỗng     |
 
 ## Giữ nguyên (điểm mạnh)
 
