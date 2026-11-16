@@ -1,6 +1,13 @@
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { access, rm, writeFile } from "node:fs/promises";
+import {
+  access,
+  chmod,
+  copyFile,
+  realpath,
+  rm,
+  writeFile,
+} from "node:fs/promises";
 import { expect, onTestFinished } from "vitest";
 import { createFirmwareAnalysisProvider } from "../../../src/composition/firmware.js";
 import { FirmwareAnalysisService } from "../../../src/application/firmware/FirmwareAnalysisService.js";
@@ -13,6 +20,12 @@ export const firmwareFixture = async (mode = "normal", banner?: string) => {
   const path = join(root, "input.bin");
   await writeFile(path, Buffer.from("fixture-input-data"));
   onTestFinished(() => rm(root, { recursive: true, force: true }));
+  // A fixture-owned regular file: the provider resolves symlinks, and hosts
+  // differ in where `/usr/bin/true` points (e.g. `gnutrue` on Ubuntu 26.04).
+  const binwalkCommand = join(root, "binwalk");
+  await copyFile("/usr/bin/true", binwalkCommand);
+  await chmod(binwalkCommand, 0o755);
+  const resolvedBinwalkCommand = await realpath(binwalkCommand);
   const launches: {
     cwd: string | undefined;
     pid: number | undefined;
@@ -21,14 +34,14 @@ export const firmwareFixture = async (mode = "normal", banner?: string) => {
   const provider = createFirmwareAnalysisProvider(
     {
       ...process.env,
-      REA_BINWALK_COMMAND: "/usr/bin/true",
+      REA_BINWALK_COMMAND: binwalkCommand,
       REA_UNBLOB_COMMAND: process.execPath,
     },
     async (options) => {
       const start = options.arguments.indexOf("--") + 2;
       const args = options.arguments.slice(start);
       const engine =
-        options.arguments[start - 1]?.endsWith("/true") === true
+        options.arguments[start - 1] === resolvedBinwalkCommand
           ? "binwalk"
           : "unblob";
       const spawned = await spawnOwnedProviderProcess({
