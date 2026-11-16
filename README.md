@@ -339,10 +339,10 @@ REA is an open-source software project. We have not issued or endorsed any crypt
 
 ## Ủng hộ và liên hệ
 
-> Bản này do **seeker19110** duy trì, dựa trên [morluto/rea](https://github.com/morluto/rea) (MIT, © 2026 morluto và
+> Bản này do **www-donghanhcungban-org** duy trì, dựa trên [morluto/rea](https://github.com/morluto/rea) (MIT, © 2026 morluto và
 > những người đóng góp). Mục ủng hộ và hỗ trợ triển khai dưới đây dành cho người duy trì bản này, không phải dự án gốc.
 >
-> _English: this copy is maintained by seeker19110 (based on morluto/rea). You can donate via the VietQR code below and
+> _English: this copy is maintained by www-donghanhcungban-org (based on morluto/rea). You can donate via the VietQR code below and
 > get implementation support in Ho Chi Minh City or online._
 
 Dự án miễn phí và mở mã. Nếu nó giúp bạn tiết kiệm thời gian, bạn có thể ủng hộ để người duy trì bản này tiếp tục phát triển:
