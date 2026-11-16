@@ -339,7 +339,7 @@ REA is an open-source software project. We have not issued or endorsed any crypt
 
 ## Ủng hộ và liên hệ
 
-> Bản này do **www-donghanhcungban-org** duy trì, dựa trên [morluto/rea](https://github.com/morluto/rea) (MIT, © 2026 morluto và
+> Bản này do **www-donghanhcungban-org** duy trì, dựa trên <a href="https://github.com/morluto/rea">morluto/rea</a> (MIT, © 2026 morluto và
 > những người đóng góp). Mục ủng hộ và hỗ trợ triển khai dưới đây dành cho người duy trì bản này, không phải dự án gốc.
 >
 > _English: this copy is maintained by www-donghanhcungban-org (based on morluto/rea). You can donate via the VietQR code below and
@@ -350,7 +350,7 @@ Dự án miễn phí và mở mã. Nếu nó giúp bạn tiết kiệm thời gi
 <img src="docs/assets/donate-vietqr-techcombank.png" alt="Mã VietQR ủng hộ: Techcombank, số tài khoản 890977819110" width="260">
 
 - Quét mã VietQR bằng ứng dụng ngân hàng bất kỳ, hoặc chuyển khoản **Techcombank — số tài khoản `890977819110`**.
-- Liên hệ, góp ý, hợp tác: điện thoại / Zalo **[+84 977 819 110](https://zalo.me/0977819110)** ·
+- Liên hệ, góp ý, hợp tác: điện thoại / Zalo <b><a href="https://zalo.me/0977819110">+84 977 819 110</a></b> ·
   email **admin@donghanhcungban.org**. Lỗi và đề xuất tính năng xin mở issue trên GitHub.
 - **Hỗ trợ triển khai:** người duy trì hỗ trợ cài đặt và áp dụng dự án cho nhu cầu của bạn — **trực tiếp tại TP. Hồ Chí Minh**
   hoặc **online** ở bất kỳ đâu. Liên hệ qua điện thoại/Zalo hoặc email ở trên để trao đổi.
